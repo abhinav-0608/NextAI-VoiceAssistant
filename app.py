@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
+import os
 
 app = Flask(__name__)
 
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', '00e44deece60e7d56c87e5a40bc66222')
 # Root URL to confirm the server is running
 @app.route('/')
 def index():
